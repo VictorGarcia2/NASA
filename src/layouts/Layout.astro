@@ -1,0 +1,38 @@
+---
+import "@fontsource/michroma";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+</head>
+<body>
+	  <canvas id="stars"></canvas>
+    <slot />
+    <script src="/src/scripts/main.js"></script>
+  </body>
+</html>
+<style>
+  html,
+  body {
+    font-family: "Michroma", sans-serif;
+    background-color: rgb(26, 26, 26);
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+  }
+  canvas {
+    z-index: -1;
+    /* Elimina el espacio adicional del canvas */
+    position: fixed;
+    /* Fija el canvas en toda la pantalla */
+    top: 0;
+    left: 0;
+  }
+</style>
