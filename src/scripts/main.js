@@ -25,6 +25,8 @@ peticion.addEventListener('click', () => {
     }
 })
 function create(valor) {
+    alert.classList.add('hidden')
+
     let divImg = document.createElement('div')
     divImg.classList.add('pb-5')
     divImg.classList.add('px-4', 'flex', 'justify-center')
