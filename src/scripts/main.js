@@ -4,9 +4,13 @@ const date = document.querySelector('#date-picker')
 const card = document.querySelector('.card')
 const peticion = document.querySelector('#peticion')
 peticion.addEventListener('click', () => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=ANxSr2MF24pdqvlnrfVWfs0xsGxiibQBUqZ3uR0S&date=${date.value}`)
-        .then((response) => response.json())
-        .then((data) => create(data))
+    if(date.value !== ""){
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=ANxSr2MF24pdqvlnrfVWfs0xsGxiibQBUqZ3uR0S&date=${date.value}`)
+            .then((response) => response.json())
+            .then((data) => create(data))
+    } else{
+        date.classList.add('border-2', 'border-red-700', 'bg-red-700/20', 'text-white')
+    }
 })
 function create(valor) {
     console.log(valor);
