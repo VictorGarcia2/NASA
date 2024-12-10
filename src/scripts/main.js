@@ -6,7 +6,7 @@ const peticion = document.querySelector('#peticion')
 const alert = document.querySelector('.alert')
 peticion.addEventListener('click', () => {
     card.innerHTML = ""
-    if (date.value !== "" && date.value > 19) {
+    if (date.value !== "") {
         fetch(`https://api.nasa.gov/planetary/apod?api_key=ANxSr2MF24pdqvlnrfVWfs0xsGxiibQBUqZ3uR0S&date=${date.value}`)
             .then((response) => {
                 if (!response.ok) {
@@ -31,7 +31,7 @@ function create(valor) {
     divImg.classList.add('pb-5')
     divImg.classList.add('px-4', 'flex', 'justify-center')
     let img = document.createElement('img')
-    img.classList.add('w-96', 'h-96', 'rounded-lg', 'object-cover')
+    img.classList.add('w-96', 'h-96', 'rounded-lg', 'object-contain')
     img.src = valor.hdurl
     divImg.appendChild(img)
     card.appendChild(divImg)
