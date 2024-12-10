@@ -6,7 +6,7 @@ const peticion = document.querySelector('#peticion')
 const alert = document.querySelector('.alert')
 peticion.addEventListener('click', () => {
     card.innerHTML = ""
-    if (date.value !== "") {
+    if (date.value !== "" && date.value > 19) {
         fetch(`https://api.nasa.gov/planetary/apod?api_key=ANxSr2MF24pdqvlnrfVWfs0xsGxiibQBUqZ3uR0S&date=${date.value}`)
             .then((response) => {
                 if (!response.ok) {
