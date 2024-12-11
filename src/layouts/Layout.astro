@@ -4,15 +4,15 @@ import "@fontsource/michroma";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-</head>
-<body>
-	  <canvas id="stars"></canvas>
+    <title>Nasa imagen del día</title>
+  </head>
+  <body>
+    <canvas id="stars"></canvas>
     <slot />
     <script src="/src/scripts/main.js"></script>
   </body>
@@ -25,7 +25,7 @@ import "@fontsource/michroma";
     padding: 0%;
     display: flex;
     justify-content: center;
-	align-items: center;
+    align-items: center;
   }
   canvas {
     z-index: -1;
