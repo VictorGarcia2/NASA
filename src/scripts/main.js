@@ -21,12 +21,16 @@ peticion.addEventListener('click', () => {
             });
     } else {
         date.classList.add('border-2', 'border-red-700', 'bg-red-700/20', 'text-white');
-        
+
+
     }
 })
-function create(valor) {
-    alert.classList.add('hidden')
 
+
+
+ async function create(valor) {
+    console.log(valor)
+    alert.classList.add('hidden')
     let divImg = document.createElement('div')
     divImg.classList.add('pb-5')
     divImg.classList.add('px-4', 'flex', 'justify-center')
@@ -48,15 +52,41 @@ function create(valor) {
     card.appendChild(divBtn)
     let divCopy = document.createElement('div')
     divCopy.classList.add('p-8', 'flex', 'justify-center', 'flex-col')
-    let titulo  = document.createElement('h2')
+    let titulo = document.createElement('h2')
     titulo.classList.add('text-white', 'text-3xl', 'pb-8', 'text-start')
     titulo.textContent = valor.title
     let explicacion = document.createElement('h3')
     explicacion.classList.add('text-white', 'text-2xl', 'font-mono')
     explicacion.textContent = 'Explanation:'
     let copy = document.createElement('p')
-    copy.classList.add('text-white', 'text-sm', 'h-52', 'overflow-scroll', 'font-mono')
-    copy.textContent = valor.explanation
+    copy.classList.add('text-white', 'text-sm', 'h-52', 'overflow-auto', 'font-mono')
+   
+        const url = 'https://google-translate113.p.rapidapi.com/api/v1/translator/text';
+        const options = {
+            method: 'POST',
+            headers: {
+                'x-rapidapi-key': '1c4a0c2f14msha927f243fb7d8c8p1adc99jsn665fb8590ddf',
+                'x-rapidapi-host': 'google-translate113.p.rapidapi.com',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                from: 'auto',
+                to: 'es',
+                text: `${valor.explanation}`
+            })
+        };
+    
+        try {
+            const response = await fetch(url, options);
+            const result = await response.json();
+            console.log(result)
+            copy.textContent = result.trans
+        } catch (error) {
+            console.error(error);
+        }
+        console.log(options)
+    
+    
     divCopy.appendChild(titulo)
     divCopy.appendChild(explicacion)
     divCopy.appendChild(copy)
