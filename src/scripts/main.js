@@ -1,5 +1,5 @@
-
 import { generarEstrellas, animar } from "./stars.js";
+import { SECRET_PASSWORD, PUBLIC_ANYBODY } from "./config.js";
 const date = document.querySelector('#date-picker')
 const card = document.querySelector('#card')
 const peticion = document.querySelector('#peticion')
@@ -65,8 +65,8 @@ peticion.addEventListener('click', () => {
         const options = {
             method: 'POST',
             headers: {
-                'x-rapidapi-key': '1c4a0c2f14msha927f243fb7d8c8p1adc99jsn665fb8590ddf',
-                'x-rapidapi-host': 'google-translate113.p.rapidapi.com',
+                'x-rapidapi-key': SECRET_PASSWORD,
+                'x-rapidapi-host': PUBLIC_ANYBODY,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
